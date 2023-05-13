@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Welcome to Neural Style Transfer</h1>
+    <form method="POST" action="{% url 'result' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Content Image: <input type="file" name="content"></p>
+        <p>Style Image: <input type="file" name="style"></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
